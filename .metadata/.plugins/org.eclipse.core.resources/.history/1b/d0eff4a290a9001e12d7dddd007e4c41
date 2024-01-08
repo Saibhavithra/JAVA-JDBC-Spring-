@@ -1,0 +1,49 @@
+package com.returnship.training.java8;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Streamdemo {
+	public static void main(String[] args) throws IOException
+	{
+		//List<Integer> numbers = Arrays.asList(2,7,8,5,21);
+		//2 another way of creating stream without list// Stream.of(2,4,6,7,8,9);
+		//Stream<Integer>  numberStream = numbers.stream();
+		// numberStream.parallel().forEach(null);
+		//numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().forEach(x->System.out.println(x));
+		
+		//List <Integer> oddNumbers = numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().collect(Collectors.toList());
+		//  System.out.println(oddNumbers);
+		//Set squareSet = numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().collect(Collectors.toSet());
+		 // System.out.println(squareSet);
+		//numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().forEach(System.out ::println);
+		//numbers.stream().filter(n->n%2 != 0).map(n->n*n).sorted().forEach(System.out ::println);
+	//	int maxNumber = numbers.stream().max(Comparator.comparing(Integer::valueOf)).get();
+		//System.out.println(maxNumber);
+		
+		// create a Stream of String and then filter out all the names that
+		// starts with a particular letter, then add a common last name to
+		// all the names and then sort them and display the result
+		List<String> names = Arrays.asList("Ram", "madhu", "Sai");            
+		List<String> result = names.stream().filter(s -> s.startsWith("S")).collect(Collectors.toList());
+		System.out.println(result);
+       
+          
+         
+		/*File fileName= new File("data.txt");
+		 Stream<String> data = Files.lines(fileName.toPath());
+		data.forEach(System.out::println);
+		data.parallel().forEach(System.out::println);
+		data.close();*/
+		
+		numberStream.close();
+	}
+
+}

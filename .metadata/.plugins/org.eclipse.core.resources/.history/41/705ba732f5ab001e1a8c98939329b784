@@ -1,0 +1,64 @@
+package com.mars.springjdbc.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class Product {
+	
+	private int ProdId;
+	public Product(int i, String string, String string2, String string3, int j, int k) {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int getProdId() {
+		return ProdId;
+	}
+	public void setProdId(int prodId) {
+		ProdId = prodId;
+	}
+	public String getProdCategory() {
+		return ProdCategory;
+	}
+	public void setProdCategory(String prodCategory) {
+		ProdCategory = prodCategory;
+	}
+	public String getProdName() {
+		return ProdName;
+	}
+	public void setProdName(String prodName) {
+		ProdName = prodName;
+	}
+	public String getProdDesc() {
+		return ProdDesc;
+	}
+	public void setProdDesc(String prodDesc) {
+		ProdDesc = prodDesc;
+	}
+	public String getQuantity() {
+		return Quantity;
+	}
+	public void setQuantity(String quantity) {
+		Quantity = quantity;
+	}
+	public double getPrice() {
+		return Price;
+	}
+	public void setPrice(double price) {
+		Price = price;
+	}
+	private String ProdCategory;
+	private String ProdName;
+	private String ProdDesc;
+	private String Quantity;
+	private double Price;
+	
+	
+	
+
+}

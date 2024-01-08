@@ -1,0 +1,51 @@
+package com.returnship.training.jdbc;
+import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Data;
+import
+@Data
+@NoArgsConstructor
+public class Person {
+	
+	
+	    private String name;
+	    private int age;
+	    
+/*	    @Autowired
+	    private Car myCar;
+
+	    @Override
+		public String toString() {
+			return "Person [name=" + name + ", age=" + age + "]";
+		}
+
+		public Person(String name, int age) {
+	       
+	        this.name = name;
+	        this.age = age;
+	    }
+
+	public Person() {
+			// TODO Auto-generated constructor stub
+		}
+
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getAge() {
+		return age;
+	}*/
+
+	public void setAge(int age) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

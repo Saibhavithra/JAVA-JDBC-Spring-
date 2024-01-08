@@ -1,0 +1,97 @@
+package com.returnship.training.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Jdbcdemo {
+	public static void main(String[] args){
+		Connection con = null;
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/mars_sept";
+		String userName ="root";
+		String password ="Srisrianna111*";
+		
+		con = DriverManager.getConnection(url, userName, password);
+	/*	if(con !=  null ) {
+			System.out.println("Connection is Successful");}
+			else
+				{System.out.println("Connection refused");	
+		}*/
+		
+		//Statement stmt = con.createStatement();
+		
+		//stmt.executeQuery("");
+		//PreparedStatement pstmt = con.prepareStatement("select * from Product_JDBC_Sample");
+	//	PreparedStatement pstmt = con.prepareStatement("select * from SALESMAN where SALESMAN_ID =? ");
+	//2	pstmt.setString(1,"5001");
+	//2	pstmt.executeQuery();
+		ResultSet rs = stmt.executeQuery("select * from Product_JDBC_Sample");
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+         System.out.println(rs.getString(1)+":"+rs.getString(2));
+		}
+	
+		PreparedStatement pstmt1 = con.prepareStatement("insert into SALESMAN values(?,?,?,?) ");
+		pstmt1.setString(1,"5012");
+		pstmt1.setString(2,"ram");
+		pstmt1.setString(3,"sussex");
+		pstmt1.setDouble(4,0.15000);
+		int i =pstmt1.executeUpdate();
+		System.out.println(i+ "records inserted");
+		 String sql = "CREATE TABLE [Product_JDBC_Sample](" + "[ProductID] [int] IDENTITY(1,1) NOT NULL,"
+	                + "[Name] [varchar](30) NOT NULL," + "[ProductNumber] [nvarchar](25) NOT NULL,)";
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		}
+	}
+	
+
+
+private static void createTable(Statement stmt) throws SQLException {
+    stmt.execute("if exists (select * from sys.objects where name = 'Product_JDBC_Sample')"
+            + "drop table Product_JDBC_Sample");
+
+    String sql = "CREATE TABLE [Product_JDBC_Sample](" + "[ProductID] [int] IDENTITY(1,1) NOT NULL,"
+            + "[Name] [varchar](30) NOT NULL," + "[ProductNumber] [nvarchar](25) NOT NULL,"
+            + "[MakeFlag] [bit] NOT NULL," + "[FinishedGoodsFlag] [bit] NOT NULL," + "[Color] [nvarchar](15) NULL,"
+            + "[SafetyStockLevel] [smallint] NOT NULL," + "[ReorderPoint] [smallint] NOT NULL,"
+            + "[StandardCost] [money] NOT NULL," + "[ListPrice] [money] NOT NULL," + "[Size] [nvarchar](5) NULL,"
+            + "[SizeUnitMeasureCode] [nchar](3) NULL," + "[WeightUnitMeasureCode] [nchar](3) NULL,"
+            + "[Weight] [decimal](8, 2) NULL," + "[DaysToManufacture] [int] NOT NULL,"
+            + "[ProductLine] [nchar](2) NULL," + "[Class] [nchar](2) NULL," + "[Style] [nchar](2) NULL,"
+            + "[ProductSubcategoryID] [int] NULL," + "[ProductModelID] [int] NULL,"
+            + "[SellStartDate] [datetime] NOT NULL," + "[SellEndDate] [datetime] NULL,"
+            + "[DiscontinuedDate] [datetime] NULL," + "[rowguid] [uniqueidentifier] ROWGUIDCOL  NOT NULL,"
+            + "[ModifiedDate] [datetime] NOT NULL,)";
+
+    stmt.execute(sql);
+
+    sql = "INSERT Product_JDBC_Sample VALUES ('Adjustable Time','AR-5381','0','0',NULL,'1000','750','0.00','0.00',NULL,NULL,NULL,NULL,'0',NULL,NULL,NULL,NULL,NULL,'2008-04-30 00:00:00.000',NULL,NULL,'694215B7-08F7-4C0D-ACB1-D734BA44C0C8','2014-02-08 10:01:36.827') ";
+    stmt.execute(sql);
+
+    sql = "INSERT Product_JDBC_Sample VALUES ('ML Bottom Bracket','BB-8107','0','0',NULL,'1000','750','0.00','0.00',NULL,NULL,NULL,NULL,'0',NULL,NULL,NULL,NULL,NULL,'2008-04-30 00:00:00.000',NULL,NULL,'694215B7-08F7-4C0D-ACB1-D734BA44C0C8','2014-02-08 10:01:36.827') ";
+    stmt.execute(sql);
+
+    sql = "INSERT Product_JDBC_Sample VALUES ('Mountain-500 Black, 44','BK-M18B-44','0','0',NULL,'1000','750','0.00','0.00',NULL,NULL,NULL,NULL,'0',NULL,NULL,NULL,NULL,NULL,'2008-04-30 00:00:00.000',NULL,NULL,'694215B7-08F7-4C0D-ACB1-D734BA44C0C8','2014-02-08 10:01:36.827') ";
+    stmt.execute(sql);
+}
+}
+
+
+// sudo mysql -u root -p 
+//sudo mysql

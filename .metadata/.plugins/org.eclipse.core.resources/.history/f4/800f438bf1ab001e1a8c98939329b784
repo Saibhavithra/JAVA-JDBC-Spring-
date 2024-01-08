@@ -1,0 +1,30 @@
+package com.mars.springjdbc.dao;
+
+
+
+public class ProductDAO {
+	
+	product getproductBYiD(Int prodId);
+	
+	List<Product> getAllProducts();
+	bolean deleteproduct(Product product)
+
+}
+
+
+package org.mars.springjdbc.dao;
+
+import java.util.List;
+ 
+import com.mars.springjdbc.model.product;
+ 
+public interface ProductDAO {
+	Product getProductById(String PRODUCT_ID);
+	List<Product> getAllProducts();
+	boolean deleteProduct(Product pro);
+	boolean updateProduct(Product pro);
+	boolean createProduct(Product pro);
+ 
+	
+ 
+}

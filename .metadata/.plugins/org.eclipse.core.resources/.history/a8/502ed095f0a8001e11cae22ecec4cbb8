@@ -1,0 +1,42 @@
+package com.returnship.training.com.collection.hashmapdemo;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.returnship.training.phonebook.Contact;
+
+public class Hashmapuser {
+
+	    public static void main(String[] args) {
+
+	        Map<Integer, Employee> employeesMap = new HashMap<>();
+	        employeesMap.put(1001, new Employee(1001, "Madhu", "Testing"));
+	        employeesMap.put(1002, new Employee(1002, "sai", "Development"));
+	        employeesMap.put(1003, new Employee(1003, "Jack", "Production"));
+
+	        System.out.println(employeesMap);
+             Employee employee = new  Employee();
+             Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the EmpId:");	
+			
+			int empId = sc.nextInt();
+			
+			//employee.displaydept(empId);
+			
+			if( employeesMap.containsKey(empId)) {
+				 Employee Emp = employeesMap.get(empId);
+				  System.out.println(Emp);
+		}
+			
+		/*for ( Map.Entry<Integer, Employee> entry:  employeesMap.entrySet()) {
+		      	  if(employee.getId() == empId) {
+		      	  System.out.println(employee.getId()+ " " +employee .getName()+ " " +employee.getdept());
+		      	  }*/
+	      
+			}	
+	}
+
+
+
+

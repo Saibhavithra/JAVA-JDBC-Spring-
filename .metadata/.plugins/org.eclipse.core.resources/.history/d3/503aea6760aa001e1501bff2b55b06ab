@@ -1,0 +1,13 @@
+package com.training.spring;
+
+public class Car {
+	
+	Private String make;
+	Private String model;
+	Private int Year;
+	
+	public  get
+	
+	
+
+}

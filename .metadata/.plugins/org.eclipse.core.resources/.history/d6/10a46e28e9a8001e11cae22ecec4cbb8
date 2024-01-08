@@ -1,0 +1,57 @@
+package com.returnship.training.phonebook;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Phonebook {
+	private List<Contact>contactList = new ArrayList();
+	
+	
+
+	public List<Contact> getContactList() {
+		return contactList;
+	}
+
+	public void setContactList(List<Contact> contactList) {
+		this.contactList = contactList;
+	}
+	
+	// Add a contact
+	public void addContact(Contact contactobj) {
+		contactList.add(contactobj);
+		System.out.println("Contact added Successfully");
+	}
+   //
+	
+	 
+	    
+	public List<Contact> getAllContacts() {
+	
+		return contactList;
+	}
+	
+	public boolean removeContact(long phoneNumber) {
+		boolean flag =false;
+		for(Contact contact:contactList) {
+			if(contact.getPhoneNumber() == phoneNumber)
+			{flag =true;
+			contactList.remove(contact);
+			System.out.println("Contact deleted Successfully");
+			break;
+			
+		}
+		}
+		return flag;
+	}
+	
+	public Contact getContacts(long phoneNumber) {
+		for(Contact contact:contactList) {
+		if(contact.getPhoneNumber() == phoneNumber)
+		return contact;
+	}
+	return null;
+	}
+}
+
+
+

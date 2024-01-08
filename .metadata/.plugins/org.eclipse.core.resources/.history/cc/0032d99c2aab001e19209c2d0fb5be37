@@ -1,0 +1,6 @@
+package com.training.spring.config;
+import org.
+
+public class ApplicationConfig {
+
+}

@@ -1,0 +1,13 @@
+package com.training.spring.config;
+import org.
+@Congifuration
+public class ApplicationConfig {
+	
+	@Bean
+	public Person person() {
+		person p1 = new Person();
+		p1.setfIRSTnAME("James");
+		return p1;
+	}
+
+}

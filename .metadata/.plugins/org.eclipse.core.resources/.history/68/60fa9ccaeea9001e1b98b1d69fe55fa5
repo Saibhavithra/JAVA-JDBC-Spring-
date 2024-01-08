@@ -1,0 +1,26 @@
+package com.returnship.training.jdbc;
+
+public class Person {
+	
+	
+	    private String name;
+	    private String age;
+
+	    public Person(Integer id, String name, String dept) {
+	        this.id = id;
+	        this.name = name;
+	        this.dept = dept;
+	    }
+
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAge(String age) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

@@ -1,0 +1,108 @@
+package com.returnship.training.phonebook;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+import com.returnship.training.collection.Employee;
+
+public class Phonebookclient {
+
+	 public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Phonebook mainObj = new Phonebook();
+		System.out.println("Menu\n1.Add Contact\n2.Display All Contacts"
+				+"\n3. Search by PhoneNumber\n4. Remove a Contact"
+				+"\n5.Exit the Application");
+		System.out.println("Enter your Choice:");
+		int choice = sc.nextInt();
+		switch(choice) {
+		case 1:
+			Contact contact = new Contact();
+			
+			System.out.println("Enter the Name:");	
+			sc.nextLine();
+		    contact.setName(sc.nextLine());
+			System.out.println("Enter the PhoneNumber:");
+			contact.setPhoneNumber(Long.parseLong(sc.nextLine()));
+			System.out.println("Email:");
+			contact.setEmail(sc.nextLine());
+			System.out.println("Organization:");
+			contact.setOrganization(sc.nextLine());
+			
+			mainObj.addContact(contact);
+			System.out.println("addedd "+contact);
+			 System.out.println(contact.toString());				
+			break;
+			
+		
+			
+			
+
+		case 2:
+			
+	
+				System.out.println("Contact List:");
+				List<Contact> contList = mainObj.getAllContacts();
+				
+				for(Contact cont:contList) {
+					System.out.println("Name:"+cont.getName());
+					System.out.println("Email:"+cont.getEmail());
+					System.out.println("Phone number:"+cont.getPhoneNumber());
+				}
+			
+		
+			break;
+		case 3:
+			
+			    System.out.println("Enter the number you want to search:");
+				long num = sc.nextLong();
+				Contact cont =  mainObj.displayContactByPhNumber(num);
+				System.out.println("Name:"+cont.getName());
+				System.out.println("Email:"+cont.getEmail());
+				System.out.println("Phone number:"+cont.getPhoneNumber());
+			
+				break;
+				
+		case 4:
+			
+		
+			System.out.println("Enter the PhoneNumber you want to delete:");
+			Long  Phnum =  sc.nextLong();	
+			if (mainObj.removeContact(Phnum)) {
+				System.out.println("Contact deleted successfully");
+			}
+			else {
+				System.out.println("Error deleting the contact");
+			
+			}
+			
+			
+			break;
+		case 5:
+		{
+			System.exit(0);
+			break;
+		}
+		default:		
+			 System.out.println("Error");
+             break;	
+		}			    		 	 	 	
+	 }
+	 
+	 private static String displayAll(Phonebook mainobj) {
+	        String allContacts = "Here are all available contacts:";
+	        List<Contact >contacts = mainobj.getAllContacts();
+	        for (Contact contact: contacts) {
+	            allContacts += "\n" + contact;
+	        }
+	        return allContacts;
+	    }
+   
+      
+        
+     }    
+
+
+

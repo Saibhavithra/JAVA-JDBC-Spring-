@@ -1,0 +1,26 @@
+package com.returnship.training.java8;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Streamdemo {
+	public static void main(String[] args)
+	{
+		List<Integer> numbers = Arrays.asList(2,7,8,5,21);
+		Stream.of(2,4,6,7,8,9);
+		Stream<Integer>  numberStream = numbers.stream();
+		//numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().forEach(x->System.out.println(x));
+		//List <Integer> oddNumbers = numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().collect(Collectors.toList());
+		//Set  oddNumbers1 = numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().collect(Collectors.toSet());
+		//numberStream.filter(n->n%2 != 0).map(n->n*n).sorted().forEach(System.out ::println);
+		//numbers.stream().filter(n->n%2 != 0).map(n->n*n).sorted().forEach(System.out ::println);
+		int maxNumber = numbers.stream().max(Comparator.comparing(Integer::valueOf)).get();
+		System.out.println(maxNumber);
+		
+	}
+
+}

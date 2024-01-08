@@ -1,0 +1,10 @@
+package com.returnship.training.jdbc;
+
+public class className {
+
+	public static Object getText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

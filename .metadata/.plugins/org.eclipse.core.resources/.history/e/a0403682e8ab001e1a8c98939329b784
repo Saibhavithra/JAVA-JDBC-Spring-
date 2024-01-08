@@ -1,0 +1,31 @@
+package org.mars.springjdbc.config;
+ 
+import java.sql.DriverManager;
+ 
+import javax.sql.DataSource;
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+ 
+@Configuration
+@PropertySource("classpath:database.properties")
+public class AppConfig {
+	@Autowired
+	Environment env;
+	
+	@Bean
+	DataSource datsor() {
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setUrl(env.getProperty("url"));
+		dmds.setDriverClassName(env.getProperty("driver"));
+		dmds.setDriverClassName(env.getProperty("dbuser"));
+		dmds.setPassword(env.getProperty("dbpassword"));		
+		return null;
+	
+	}
+ 
+}

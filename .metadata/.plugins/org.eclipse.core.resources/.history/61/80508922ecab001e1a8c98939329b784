@@ -1,0 +1,24 @@
+package com.mars.springjdbc.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class product {
+	private String Name;
+	private int ProdId;
+	private String ProdCategory;
+	private String ProdName;
+	private String ProdDesc;
+	private String Quantity;
+	private double Price;
+	
+	
+	
+
+}

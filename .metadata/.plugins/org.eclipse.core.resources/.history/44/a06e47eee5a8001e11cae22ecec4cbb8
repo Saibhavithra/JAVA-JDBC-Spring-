@@ -1,0 +1,198 @@
+package com.returnship.training.phonebook;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+import com.returnship.training.collection.Employee;
+
+/*public class Phonebookclient {
+
+	 public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Phonebook mainObj = new Phonebook();
+		System.out.println("Menu\n1.Add Contact\n2.Display All Contacts"
+				+"\n3. Search by PhoneNumber\n4. Remove a Contact"
+				+"\n5.Exit the Application");
+		System.out.println("Enter your Choice:");
+		int choice = sc.nextInt();
+		switch(choice) {
+		case 1:
+			Contact contact = new Contact();
+			
+			System.out.println("Enter the Name:");	
+			sc.nextLine();
+		    contact.setName(sc.nextLine());
+			System.out.println("Enter the PhoneNumber:");
+			contact.setPhoneNumber(Long.parseLong(sc.nextLine()));
+			System.out.println("Email:");
+			contact.setEmail(sc.nextLine());
+			System.out.println("Organization:");
+			contact.setOrganization(sc.nextLine());
+			
+			mainObj.addContact(contact);
+			System.out.println("addedd "+contact);
+			 System.out.println(contact.toString());				
+			break;
+			
+			//
+		//	 List<Contact> lsCont = new ArrayList<Contact>();
+
+	          /*  Scanner scanner = new Scanner(System.in);
+	            String firstName;
+	            String lastName;
+	            String phone;
+	            String email;
+	            for (int i = 0; i < 20; i++) {
+	                System.out.println("insert firstname : ");
+	                firstName = scanner.nextLine();
+	                System.out.println("insert lastName : ");
+	                lastName = scanner.nextLine();
+	                System.out.println("insert phone : ");
+	                phone = scanner.nextLine();
+	                System.out.println("insert email : ");
+	                email = scanner.nextLine();*/
+	          /*      Contact cont = new Contact(firstName, lastName, phone, email);
+	                lsCont.add(cont);
+	                Collections.sort(lsCont);
+	                for (Contact contact : lsCont) {
+	                    System.out.println(contact.toString());
+	                } */  
+	         //   }   
+			
+			/* private static String displayAll(Phonebook phonebook) {
+			        String allContacts = "Here are all available contacts:";
+			        List<Contact >contacts = phonebook.getAllContacts();
+			        for (Contact contact: contacts) {
+			            allContacts += "\n" + contact;
+			        }
+			        return allContacts;
+			    }*/
+
+		case 2:
+			//mainObj.getAllContacts();
+			//System.out.println(displayAll(mainObj));
+			   List<Contact >contacts = mainObj.getAllContacts();
+		
+			   for (Contact contact1: contacts) {
+				   System.out.println( contact1);
+		        }
+		       // }
+			 
+			  // List<Contact >contacts = mainObj.getAllContacts();
+		      //  for (Contact contact1: contacts) {
+		       	
+		      //  }
+			break;
+		case 3:
+			
+			System.out.println("Enter the PhoneNumber:");
+			Long  Phnum =  sc.nextLong();	
+			mainObj.removeContact(Phnum);
+			System.out.println("deleted");
+			break;
+		case 4:
+			break;
+		case 5:
+		{
+			System.exit(0);
+			break;
+		}
+		default:		
+			 System.out.println("Error");
+             break;	
+		}			    		 	 	 	
+	 }
+	 
+	 private static String displayAll(Phonebook mainobj) {
+	        String allContacts = "Here are all available contacts:";
+	        List<Contact >contacts = mainobj.getAllContacts();
+	        for (Contact contact: contacts) {
+	            allContacts += "\n" + contact;
+	        }
+	        return allContacts;
+	    }
+   
+      
+        
+     }    /*
+
+package com.pwc.training.collection;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class PhoneBookTester {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		PhoneBook phBook = new PhoneBook();
+		
+		while(true) {
+			System.out.println("Menu\n1.Add contact\n2.Display all contacts\n3.Search Contact"
+					+ "by phone number\n4.Remove Contact\n5.Exit");
+			System.out.println("Please enter your choice");
+			int choice = sc.nextInt();
+			
+			if(choice == 1) {
+				Contact contact = new Contact();
+				System.out.println("Enter phoneNumber");
+				long phNo = sc.nextLong();
+				contact.setPhoneNumber(phNo);
+				System.out.println("Enter Name");
+				String name = sc.next();
+				contact.setName(name);
+				System.out.println("Enter Address");
+				String add = sc.next();
+				contact.setAddress(add);
+				
+				phBook.addContact(contact);
+			}
+			
+			else if(choice == 2) {
+				System.out.println("Contact List:");
+				List<Contact> contList = phBook.displayAllContacts();
+				
+				for(Contact cont:contList) {
+					System.out.println("Name:"+cont.getName());
+					System.out.println("Address:"+cont.getAddress());
+					System.out.println("Phone number:"+cont.getPhoneNumber());
+				}
+			}
+			
+			else if(choice == 3) {
+				System.out.println("Enter the number you want to search:");
+				long num = sc.nextLong();
+				Contact cont = phBook.displayContactByPhNumber(num);
+				System.out.println("Name:"+cont.getName());
+				System.out.println("Address:"+cont.getAddress());
+				System.out.println("Phone number:"+cont.getPhoneNumber());
+			}
+			
+			else if(choice == 4) {
+				System.out.println("Enter the number you want to delete:");
+				long num = sc.nextLong();
+				if(phBook.removeContact(num)) {
+					System.out.println("Contact deleted successfully");
+				}
+				else {
+					System.out.println("Error deleting the contact");
+				}
+				
+			}
+			else if(choice == 5) {
+				System.exit(0);
+			}
+			
+			else {
+				System.out.println("Invalid option");
+			}
+			
+		}
+
+	}
+
+}

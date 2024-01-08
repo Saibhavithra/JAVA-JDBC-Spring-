@@ -1,0 +1,66 @@
+package com.returnship.training.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Jdbcdemo {
+	public static void main(String[] args){
+		Connection con = null;
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/mars_sept";
+		String userName ="root";
+		String password ="Srisrianna111*";
+		
+		con = DriverManager.getConnection(url, userName, password);
+	/*	if(con !=  null ) {
+			System.out.println("Connection is Successful");}
+			else
+				{System.out.println("Connection refused");	
+		}*/
+		
+		//Statement stmt = con.createStatement();
+		
+		//stmt.executeQuery("");
+	//2	PreparedStatement pstmt = con.prepareStatement("select * from SALESMAN where SALESMAN_ID =? ");
+	//2	pstmt.setString(1,"5001");
+	//2	pstmt.executeQuery();
+		//ResultSet rs = stmt.executeQuery("select * from SALESMAN");
+	//2	ResultSet rs = pstmt.executeQuery();
+	//2	while(rs.next()) {
+	//2	System.out.println(rs.getString(1)+":"+rs.getString(2));
+	//2	}
+	
+		PreparedStatement pstmt = con.prepareStatement("insert into SALESMAN values(?,?,?,?) ");
+		pstmt.setString(1,"5009");
+		pstmt.setString(2,"ram");
+		pstmt.setString(3,"sussex");
+		pstmt.setDouble(4,0.15000);
+		int i =pstmt.executeUpdate();
+		System.out.println(i+ "records inserted");
+		 String sql = "CREATE TABLE [Product_JDBC_Sample](" + "[ProductID] [int] IDENTITY(1,1) NOT NULL,"
+	                + "[Name] [varchar](30) NOT NULL," + "[ProductNumber] [nvarchar](25) NOT NULL,")";"
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		}
+	}
+	
+
+}
+
+// sudo mysql -u root -p 
+//sudo mysql

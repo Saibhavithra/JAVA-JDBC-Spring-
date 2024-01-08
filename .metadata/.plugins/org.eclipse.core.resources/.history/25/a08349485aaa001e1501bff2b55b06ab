@@ -1,0 +1,8 @@
+package com.training.spring;
+
+public class SpringTester {
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmaApplicationContext("Application")
+	}
+
+}

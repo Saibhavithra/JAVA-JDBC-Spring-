@@ -1,0 +1,16 @@
+package com.returnship.training.jdbc;
+
+public class Person {
+
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAge(String age) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

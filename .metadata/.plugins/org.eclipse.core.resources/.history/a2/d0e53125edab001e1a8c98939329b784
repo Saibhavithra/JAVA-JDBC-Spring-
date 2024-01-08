@@ -1,0 +1,7 @@
+package com.mars.springjdbc.dao;
+
+public class ProductDAO {
+	
+	Product getproductBYiD(Int prodId)
+
+}

@@ -1,0 +1,5 @@
+package com.returnship.training.jdbc;
+
+public @interface Autowired {
+
+}

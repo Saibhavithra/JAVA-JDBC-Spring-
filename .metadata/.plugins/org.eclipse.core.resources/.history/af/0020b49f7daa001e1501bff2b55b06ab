@@ -1,0 +1,17 @@
+package com.returnship.training.jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class jdbcdemo2 {
+	public static void main(String[] args){
+		Connection con = null;
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/mars_sept";
+		String userName ="root";
+		String password ="Srisrianna111*";
+		PreparedStatement pstmt = con.prepareStatement("select * from persons");
+		
+
+}

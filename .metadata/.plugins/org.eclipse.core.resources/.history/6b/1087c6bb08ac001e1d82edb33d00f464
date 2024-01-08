@@ -1,0 +1,47 @@
+package com.mars.springjdbc.model;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class ProductMapper implements RowMapper<Product>{
+	public Product mapRow(ResultSet rs, int rowNum)throws SQLException{
+		Product product =new Product();
+		product.setProdId(rs.getInt("prod_id"));
+		product.setProdCategory(rs.getString("prod_category"));
+		product.setProdName(rs.getString("prod_name"));
+		product.setProdDesc(rs.getString("prod_Desc"));
+		product.setQuantity(rs.getString("stock"));
+		product.setPrice(rs.getDouble("price"));
+		return product;
+	}
+
+}
+
+
+
+package com.mars.springjdbc.model;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+ 
+import org.springframework.jdbc.core.RowMapper;
+ 
+public class ProductMapper implements RowMapper<Product> {
+ 
+ 
+	public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+		// TODO Auto-generated method stub
+		Product pro = new Product();
+		pro.setProdId(rs.getInt("PROD_ID"));
+		pro.setProdCategory(rs.getString("PROD_CATEGORY"));		
+		pro.setProdCategory(rs.getString("PROD_CATEGORY"));
+		pro.setProdCategory(rs.getString("PROD_DESC"));
+ 
+		pro.setProdName(rs.getString("PROD_NAME"));
+		pro.setPrice(rs.getInt("PR"));
+		pro.setPrice(rs.getInt("STOCK"));		
+		return product;;
+	}
+}

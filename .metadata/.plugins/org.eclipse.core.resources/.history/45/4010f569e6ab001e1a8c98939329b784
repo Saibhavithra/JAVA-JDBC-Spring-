@@ -1,0 +1,11 @@
+package com.mars.springjdbc.config;
+@Configuration
+public class AppConfig {
+	@Bean
+	DataSource dataSource() {
+		DriveManagerDataSource dmDataSource = new DriverMangerDatasource();
+		
+	}
+	
+
+}

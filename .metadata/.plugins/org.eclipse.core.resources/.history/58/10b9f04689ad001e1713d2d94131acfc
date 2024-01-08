@@ -1,0 +1,68 @@
+package com.returnship.training.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class jdbcdemo2 {
+	public static void main(String[] args) throws SQLException{
+		Connection con = null;
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/mars_sept";
+		String userName ="root";
+		String password ="Srisrianna111*";
+		con = DriverManager.getConnection(url, userName, password);
+		if (con!=null) {
+			System.out.println("Connection is sucessfull");
+		} else {
+			System.out.println("Connection is NOT sucessfull");
+		}
+
+		PreparedStatement pstmt = con.prepareStatement("select * from person");
+		ResultSet rs = pstmt.executeQuery();
+		List<Person> personList = new ArrayList<>();
+	       System.out.println("Records from person database");
+	       while (rs.next()) {
+	         Person person = new Person();
+	         String name = rs.getString("name");
+	         int age = rs.getInt("age");
+	         person.setName(name);
+	         person.setAge(age);
+	         personList.add(person);
+	         System.out.println("Name: " + name + " " + "age: " + age);
+	         
+			  
+	         // personList.stream().filter(prod->prod.getName().contains("Sumi")).map(pre->pre+pre.getName()+" & HEAL").forEach(System.
+	          	// out::println);
+	   
+	        	    
+	        personList.stream().filter(e -> e.getAge()>26).forEach(System. out::println);
+	         // personList.stream().filter(e->e.getName().contains("Amrit")).map(pre->pre+pre.getName()+" & HEA").forEach(System.out::println);
+	        /* Person oldest = persons.stream()
+	        		  .sorted(Comparator.comparing(Person::getAge).reversed())
+	        		  .findFirst().get();  */
+	       }
+	       System.out.println(personList); 
+	     }
+			 
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				
+					con.close();
+				
+				}
+			
+			}
+		}
+		
+
+
+

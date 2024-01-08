@@ -1,0 +1,14 @@
+package com.returnship.training.java8;
+
+import java.util.function.Predicate;
+
+public class Lambdademo {
+	public static void main(String[] args){
+		Myfuncinterface obj = (m,n) -> m+n;
+		System.out.println("sum:" + obj.sum(43, 28));
+		
+		//Predicate<Integer> pred =x-> x%2=0;
+		//pred.test(34);
+	}
+
+}

@@ -1,0 +1,22 @@
+package com.mars.springjdbc.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;;
+
+@Configuration
+@PropertySource("classpath:database.properties")
+public class AppConfig {
+	@Bean
+	DataSource dataSource() {
+		DriveManagerDataSource dmDataSource = new DriverMangerDatasource();
+		dmDataSource.setUrl(env.getProperty("url"));
+		dmDataSource.setDriverClassName(env.getProperty("driver"));
+		dmDataSource.setDriverClassName(env.getProperty("driver"));
+	}
+	
+
+}

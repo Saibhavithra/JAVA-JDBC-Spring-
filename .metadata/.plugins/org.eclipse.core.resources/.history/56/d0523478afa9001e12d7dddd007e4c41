@@ -1,0 +1,12 @@
+package com.returnship.training.jdbc;
+
+import javax.swing.table.DefaultTableModel;
+
+public interface hwList {
+
+	static DefaultTableModel getModel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

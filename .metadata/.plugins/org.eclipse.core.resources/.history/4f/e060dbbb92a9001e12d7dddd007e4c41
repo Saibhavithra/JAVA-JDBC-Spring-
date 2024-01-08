@@ -1,0 +1,16 @@
+package com.returnship.training.java8;
+
+public class VarArgsdemo {
+	public static void main(String[] args) {
+		show(100);
+		show(12,45);
+		show(100);
+		
+	}
+
+	private static void show(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
