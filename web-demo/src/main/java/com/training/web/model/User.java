@@ -32,4 +32,4 @@ public class User {
 	
     // getters and setters are not shown for brevity   
      
-}
+}  
