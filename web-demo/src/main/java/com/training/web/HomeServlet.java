@@ -87,9 +87,11 @@ List<User>userList = new ArrayList <>();
 	               // HttpSession session = request.getSession();
 	                request.setAttribute("user", user);
 	               // destPage = "home.jsp";
-	                
+	              
+////	            response.sendRedirect(path + "/home");
 	                RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 		            dispatcher.forward(request, response);
+		            //response.sendRedirect("home.jsp");
 	            	
 	            /*	request.setAttribute("name",name);		
 	        		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
@@ -105,7 +107,8 @@ List<User>userList = new ArrayList <>();
 	                request.setAttribute("message", message);
 	                
 	                RequestDispatcher dispatcher = request.getRequestDispatcher("test.jsp");
-		            dispatcher.forward(request, response);
+		            //dispatcher.forward(request, response);
+		            response.sendRedirect("test.jsp");
 	            	
 	            }
 	            		
