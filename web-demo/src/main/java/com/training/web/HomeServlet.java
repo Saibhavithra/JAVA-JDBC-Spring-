@@ -2,12 +2,13 @@ package com.training.web;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
-
-//import com.training.web.dao.LoginDao;
 import com.training.web.dao.UserDAO;
 import com.training.web.model.User;
+import com.training.web.service.LoginService;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -34,9 +35,12 @@ public class HomeServlet extends HttpServlet {
     }
 String msg;
 String errmsg;
+List<User>userList = new ArrayList <>();
     public void init() {
     	msg ="Sitaram";
     	errmsg = "error";
+    	//userList.add(new User("sai","123","sai@gmail.com"));
+    	
     }
     
 	/**
@@ -68,10 +72,15 @@ String errmsg;
 		String name= request.getParameter("name");
 		String password= request.getParameter("password");
 		
-		UserDAO userDao = new UserDAO();
+		//request.setAttribute("name", name);
+	//	request.setAttribute("users", userList);
+	
+		//UserDAO userDao = new UserDAO();
+		LoginService loginservice = new LoginService();
 		
 		  try {
-			  User user = userDao.checkLogin(name, password);
+			//  User user = userDao.checkLogin(name, password);
+			 User user = loginservice.checkLogin(name, password);
 	           // String destPage = "home.jsp" ;
 	             
 	            if (user != null) {
@@ -120,7 +129,7 @@ String errmsg;
 	         /*   RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
 	            dispatcher.forward(request, response);*/
 	             
-	        } catch (SQLException | ClassNotFoundException ex) {
+	        } catch (Exception ex) {
 	            throw new ServletException(ex);
 	        }
 

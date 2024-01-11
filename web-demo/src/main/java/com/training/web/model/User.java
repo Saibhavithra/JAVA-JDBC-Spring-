@@ -17,7 +17,10 @@ public class User {
     private String password;
  
    
-    public String getName() {
+   /* public User(String string, String string2, String string3) {
+		// TODO Auto-generated constructor stub
+	}*/
+	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
